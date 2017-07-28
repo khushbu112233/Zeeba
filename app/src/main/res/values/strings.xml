@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Zeeba</string>
+    <string name="title_activity_base">BaseActivity</string>
+    <string name="title_activity_wizard">WizardActivity</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="title_activity_category">CategoryActivity</string>
+    <string name="facebook_id">283014848778924</string>
+    <!--<string name="facebook_id">490202754656137</string>-->
+    <string name="title_activity_select_answer">SelectAnswerActivity</string>
+    <string name="title_activity_thank_you">ThankYouActivity</string>
+    <string name="NO_INTERNET_CONNECTION">No Internet Connection</string>
+    <string name="title_activity_thank_you_social">ThankYouSocialActivity</string>
+    <string name="title_activity_select_social_sub_category">SelectSocialSubCategoryActivity
+    </string>
+    <string name="title_activity_information_detail">InformationDetailActivity</string>
+    <string name="sub_category_leader_board_user_list">SubcategoryLeaderboardUserListActivity</string>
+    <string name="banner_home_footer">ca-app-pub-2480483162308184/3862408959</string>
+
+    <string name="view_leaderboard">Leaderboard</string>
+    <string name="add_facebook_Friend_title">You can add your friends from \nFacebook</string>
+    <string name="challenge_your_facebook_friend">Challenge your Friend</string>
+    <string name="challenge">Challenge</string>
+    <string name="my_challengers">My \nchallenges</string>
+    <string name="accepted_challenges">Accepted \nchallenges</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+</resources>

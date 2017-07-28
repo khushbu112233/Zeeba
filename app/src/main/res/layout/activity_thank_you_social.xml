@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:background="@mipmap/splash_bg">
+        <ImageView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:layout_marginRight="110dp"
+            android:layout_gravity="center_horizontal|top"
+            android:src="@mipmap/nav_logo">
+        </ImageView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="70dp"
+                    android:src="@mipmap/trophy"
+                    android:layout_gravity="center"/>
+
+                <TextView android:id="@+id/txt_thank_you"
+                    android:layout_width="230dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Completed"/>
+                <TextView android:id="@+id/txt_answer"
+                    android:layout_width="230dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:layout_gravity="center_horizontal"
+                 />
+
+            <!--    <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1.5"
+                        android:text="Low"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="12sp"
+                        android:background="@android:color/holo_green_dark"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="0.87"
+                        android:text="Moderate"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="12sp"
+                        android:background="#ffff00"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="0.85"
+                        android:text="High"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="12sp"
+                        android:background="@android:color/holo_orange_dark"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="0.85"
+                        android:text="Extreem"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="12sp"
+                        android:background="@android:color/holo_red_dark"/>
+
+                </LinearLayout>-->
+
+                <ImageView android:id="@+id/img_meter_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/low"/>
+
+                <Button android:id="@+id/btnshare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Share With Your Friend"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#ffffff"
+                    android:textAllCaps="false"
+                    android:background="@drawable/button_bg"
+                    android:layout_gravity="center"
+                    />
+                <Button android:id="@+id/btnstart_over"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Start Over"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffff"
+                    android:layout_marginBottom="20dp"
+                    android:textAllCaps="false"
+                    android:background="@drawable/button_bg"
+                    android:layout_gravity="center"
+                    />
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

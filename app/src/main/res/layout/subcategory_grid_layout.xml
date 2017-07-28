@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+        android:orientation="vertical">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+
+            <LinearLayout
+
+                android:id="@+id/layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="@mipmap/cate_bg"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:id="@+id/img_sub_category"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="15dp"
+                    android:src="@mipmap/sub_social" />
+
+                <TextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/txt_daysremaining"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="1dp"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="Expire after 1 day"
+
+                    android:textColor="#ffffff"
+                    android:textSize="11sp" />
+
+                <!--<TextView
+                    android:id="@+id/txt_leaderboard"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="@string/view_leaderboard"
+                    android:drawableRight="@mipmap/right_arrow_leaderboard"
+                    android:drawablePadding="10dp"
+                    android:textColor="@color/pink_latest"
+                    android:textSize="11sp" />-->
+
+                <RelativeLayout
+                    android:id="@+id/rlViewleaderboard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+
+
+
+
+                    <TextView
+                        android:id="@+id/txt_view_leaderboard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text="@string/view_leaderboard"
+                        android:textColor="@color/pink_latest"
+                        android:textSize="11sp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true" />
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_alignParentRight="true"
+                        android:src="@mipmap/right_arrow_leaderboard"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/txt_view_leaderboard"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvPointSystem"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text=""
+                android:gravity="center"
+                android:textSize="12sp"
+                android:paddingTop="3dp"
+                android:visibility="gone"
+                android:textColor="@color/pink_latest"
+                android:background="@mipmap/star_point_img" />
+        </FrameLayout>
+    </LinearLayout>
+</layout>

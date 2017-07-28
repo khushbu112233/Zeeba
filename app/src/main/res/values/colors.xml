@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ec1078</color>
+    <color name="colorPrimaryDark">#ec1078</color>
+    <color name="colorAccent">#ec1078</color>
+    <color name="white">#ffffff</color>
+
+    <color name="pink_latest">#ba4758</color>
+    <color name="orange_dark">#c94f1d</color>
+    <color name="gray_dark">#252525</color>
+    <color name="challenge_dark">#a1a1a1</color>
+    <color name="blue_invite">#486db8</color>
+    <color name="gray">#d7d7d7</color>
+    <color name="mypinkWithAlpha">#BF000000</color>
+    <color name="pink_latest_trasperent">#CCFF0072</color>
+    <color name="pink_frnd_theme">#40ad0734</color>
+    <color name="accept_green">#00FF4E</color>
+    <color name="reject_red">#FF0018</color>
+</resources>

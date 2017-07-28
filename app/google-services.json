@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "16041402674",
+    "firebase_url": "https://zeeba-62099.firebaseio.com",
+    "project_id": "zeeba-62099",
+    "storage_bucket": "zeeba-62099.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16041402674:android:cc9c960db2c7b313",
+        "android_client_info": {
+          "package_name": "com.zeeba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "16041402674-1d56ka7qojkeijhujqpffe6639eloubo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zeeba",
+            "certificate_hash": "1fc69f90f7fe30caadfd9ca7d0b7e27a50cfe723"
+          }
+        },
+        {
+          "client_id": "16041402674-jj4bvot2mgg7s7kfapc62st6ok638rc1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJKjNhwpolG1XqWvUZdqI6fkoFNKqzDN4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "16041402674-jj4bvot2mgg7s7kfapc62st6ok638rc1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

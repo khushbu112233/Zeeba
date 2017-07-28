@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/selected"
+    android:oneshot="false">
+    <item
+        android:drawable="@drawable/low"
+        android:duration="310" />
+    <item
+        android:drawable="@drawable/moderate"
+        android:duration="310" />
+    <item
+        android:drawable="@drawable/high"
+        android:duration="310" />
+    <item
+        android:drawable="@drawable/extreem"
+        android:duration="310" />
+ 
+
+</animation-list>

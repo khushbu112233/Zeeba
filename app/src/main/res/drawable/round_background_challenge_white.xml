@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/white" />
+            <corners
+                android:radius="40dp"/>
+        </shape>
+    </item>
+    <!--<item
+        android:left="@dimen/fashom_stroke_width"
+        android:right="@dimen/fashom_stroke_width"
+        android:top="@dimen/fashom_stroke_width"
+        android:bottom="@dimen/fashom_stroke_width">
+        <shape android:shape="rectangle">
+            <solid android:color="#ffffff" />
+            <corners
+                android:topLeftRadius="10dp"
+                android:topRightRadius="10dp"
+                android:bottomLeftRadius="10dp"
+                android:bottomRightRadius="10dp"/>
+        </shape>
+    </item>-->
+</layer-list>

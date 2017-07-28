@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:background="@mipmap/splash_bg">
+        <FrameLayout
+            android:id="@+id/ffMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView android:id="@+id/imgleft"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/left"
+            android:padding="10dp"
+            android:layout_centerVertical="true"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:orientation="vertical"
+            >
+            <ImageView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="130dp"
+                android:layout_marginRight="130dp"
+                android:layout_gravity="center_horizontal|top"
+                android:src="@mipmap/nav_logo">
+            </ImageView>
+            <TextView android:id="@+id/txt_select"
+                android:layout_width="230dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textColor="#ffff00"
+                android:textSize="18sp"
+                android:layout_marginTop="1dp"
+                android:layout_gravity="center_horizontal"
+                />
+            <View
+                android:layout_width="250dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="#599e005d"></View>
+            <TextView android:id="@+id/pick_one_txt"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="left"
+                android:text="Pick One.."/>
+
+                <LinearLayout android:id="@+id/list_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_gravity="center"
+
+                        >
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="17dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="17dp"
+                            android:layout_marginBottom="17dp">
+                        <ImageView android:id="@+id/first_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:background="@drawable/img_bg"
+                            android:layout_weight="1"
+                            android:padding="1dp"
+                            android:scaleType="fitXY"
+                            android:adjustViewBounds="true"
+                            />
+                            <TextView android:id="@+id/txtpriority1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:visibility="gone"
+                                android:textSize="20sp"
+                                android:layout_gravity="center"/>
+                        <ImageView android:id="@+id/select_first"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:visibility="gone"
+                            android:src="@mipmap/select_icon"/>
+                            <ProgressBar
+                                android:id="@+id/progressBar1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:indeterminate="true"
+                                android:indeterminateDrawable="@drawable/my_progress_interminate"/>
+                       </FrameLayout>
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="17dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="17dp"
+
+                            android:layout_marginBottom="17dp">
+                            <ImageView android:id="@+id/second_img"
+                                android:layout_width="match_parent"
+                                android:layout_height="110dp"
+                                android:background="@drawable/img_bg"
+                                android:layout_weight="1"
+                                android:padding="1dp"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                />
+                            <TextView android:id="@+id/txtpriority2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:visibility="gone"
+                                android:textSize="20sp"
+                                android:layout_gravity="center"/>
+                            <ImageView android:id="@+id/select_second"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:visibility="gone"
+                                android:src="@mipmap/select_icon"/>
+                            <ProgressBar
+                                android:id="@+id/progressBar2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:indeterminate="true"
+                                android:indeterminateDrawable="@drawable/my_progress_interminate"/>
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_gravity="center"
+                        >
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="17dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="17dp"
+                            android:layout_marginBottom="17dp">
+                            <ImageView android:id="@+id/third_img"
+                                android:layout_width="match_parent"
+                                android:layout_height="110dp"
+                                android:background="@drawable/img_bg"
+                                android:layout_weight="1"
+                                android:padding="1dp"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                />
+                            <TextView android:id="@+id/txtpriority3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:visibility="gone"
+                                android:textSize="20sp"
+                                android:layout_gravity="center"/>
+                            <ImageView android:id="@+id/select_third"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:visibility="gone"
+                                android:src="@mipmap/select_icon"/>
+                            <ProgressBar
+                                android:id="@+id/progressBar3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:indeterminate="true"
+                                android:indeterminateDrawable="@drawable/my_progress_interminate"/>
+
+                        </FrameLayout>
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="17dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="17dp"
+                            android:layout_marginBottom="17dp">
+                            <ImageView android:id="@+id/fourth_img"
+                                android:layout_width="match_parent"
+                                android:layout_height="110dp"
+                                android:background="@drawable/img_bg"
+                                android:layout_weight="1"
+                                android:padding="1dp"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                />
+                            <TextView android:id="@+id/txtpriority4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:visibility="gone"
+                                android:textSize="20sp"
+                                android:layout_gravity="center"/>
+                            <ImageView android:id="@+id/select_fourth"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:visibility="gone"
+                                android:src="@mipmap/select_icon"/>
+                            <ProgressBar
+                                android:id="@+id/progressBar4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:indeterminate="true"
+                                android:indeterminateDrawable="@drawable/my_progress_interminate"/>
+
+                        </FrameLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnMainbottom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@color/mypinkWithAlpha"
+                android:visibility="invisible"
+                >
+                <LinearLayout
+                    android:id="@+id/rlGetsetgo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="3"
+                    android:visibility="visible"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ready_to_zeeb"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="3"
+                        android:visibility="visible"
+                        android:layout_marginTop="18dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/tvGet"
+                            android:layout_width="0dp"
+                            android:layout_weight="1.3"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="32sp"
+                            android:gravity="center_horizontal|end"
+                            android:text="Ready.."
+                            android:singleLine="true"
+                            android:visibility="invisible"
+                            />
+
+                        <TextView
+                            android:id="@+id/tvSet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:layout_weight="0.9"
+                            android:textSize="32sp"
+                            android:text="Set.."
+                            android:singleLine="true"
+                            android:visibility="invisible"
+                            android:gravity="center_horizontal"
+                            />
+
+                        <TextView
+                            android:id="@+id/tvG0"
+                            android:layout_width="0dp"
+                            android:layout_weight="0.8"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:text="Go!"
+                            android:singleLine="true"
+                            android:gravity="center_horizontal|start"
+                            android:textSize="32sp"
+                            android:visibility="invisible"
+                            />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+</FrameLayout>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/activity_facebook_login"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@mipmap/splash_bg"
+        android:gravity="center"
+        tools:context="com.zeeba.Activity.FacebookLoginActivity">
+
+        <RelativeLayout
+            android:id="@+id/rlTopeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgOfapp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:src="@mipmap/app_icon" />
+
+            <TextView
+                android:id="@+id/tvTitleNotification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/imgOfapp"
+                android:padding="8dp"
+                android:text="Zeeba"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tvmessagetoUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvTitleNotification"
+                android:layout_toRightOf="@+id/imgOfapp"
+                android:paddingLeft="8dp"
+                android:text="Deny"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlTopeLayout"
+            android:gravity="right">
+
+            <TextView
+                android:id="@+id/tvDeny"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Deny"
+                android:textColor="@color/white"
+                android:layout_centerVertical="true"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvAccept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="18dp"
+                android:layout_toRightOf="@+id/tvDeny"
+                android:text="Accept"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

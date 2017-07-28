@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:background="@mipmap/splash_bg">
+        <!-- Framelayout to display Fragments -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/drawer_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_margin="20dp"
+                    android:src="@mipmap/menu" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|top"
+                        android:layout_marginLeft="110dp"
+                        android:layout_marginRight="110dp"
+                        android:src="@mipmap/nav_logo"></ImageView>
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/img_refresh_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:layout_alignParentRight="true"
+                    android:visibility="gone"
+                    android:src="@mipmap/refresh_data_img"></ImageView>
+            </RelativeLayout>
+
+            <FrameLayout
+                android:id="@+id/frame_main_container"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_above="@+id/activity_main_drawer_tab_ln"
+                android:layout_weight="0.96" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_list"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+
+            android:background="@mipmap/splash_bg">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ln_fb_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/img_FB_userimg"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@mipmap/boy" />
+
+                    <TextView
+                        android:id="@+id/tv_FB_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center_horizontal"
+                        android:text="Test"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/med_text_size" />
+
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/list_slidermenu"
+                    android:layout_width="240dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:divider="@null"
+
+                    />
+            </LinearLayout>
+
+        </FrameLayout>
+    </android.support.v4.widget.DrawerLayout>
+</layout>

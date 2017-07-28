@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:background="@mipmap/splash_bg">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.75"
+            android:orientation="vertical"
+            >
+            <ImageView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="110dp"
+                android:layout_marginRight="110dp"
+                android:layout_gravity="center_horizontal|top"
+                android:src="@mipmap/nav_logo">
+            </ImageView>
+            <TextView android:id="@+id/txt_select"
+                android:layout_width="230dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Select your Age"/>
+            <View
+                android:layout_width="250dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="#599e005d"></View>
+            <ScrollView android:id="@+id/scrollview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout android:id="@+id/list_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center">
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:weightSum="2"
+            android:layout_alignParentBottom="true">
+            <Button android:id="@+id/btnback"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="BACK"
+                android:textColor="#ffffff"
+                android:background="@drawable/button_bg"
+                android:layout_marginLeft="30dp"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:layout_marginBottom="100dp"
+                android:layout_alignParentLeft="true"
+
+                />
+            <Button android:id="@+id/btnnext"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="DONE"
+                android:textColor="#ffffff"
+                android:background="@drawable/button_bg"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="100dp"
+                android:layout_marginLeft="30dp"
+                android:layout_weight="1"
+                android:layout_alignParentRight="true"
+
+                />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

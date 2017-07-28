@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <RelativeLayout
+        android:id="@+id/rel1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+        <RelativeLayout
+            android:id="@+id/ll_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_above="@+id/adView"
+            android:background="@android:color/transparent">
+            <TextView android:id="@+id/txt_select"
+                android:layout_width="230dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:text="Top Players"/>
+            <View
+                android:layout_width="250dp"
+                android:layout_height="1dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="#599e005d"></View>
+
+
+
+            <GridView
+                android:id="@+id/gridLeaderboradUserList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:layout_below="@+id/txt_select"
+                android:numColumns="2"
+                android:stretchMode="columnWidth" />
+        </RelativeLayout>
+
+
+
+
+    </RelativeLayout>
+
+
+</layout>

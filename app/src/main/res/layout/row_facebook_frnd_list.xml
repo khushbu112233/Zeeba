@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/llMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:padding="12dp"
+        >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/round_background_white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/img_user_fb_profile"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/user_leader_avtar_img_new"/>
+
+            <TextView
+                android:id="@+id/tvFriendName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Friend Name"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:paddingRight="4dp"
+                android:layout_toLeftOf="@+id/btnSendRequest"
+                android:layout_toRightOf="@+id/img_user_fb_profile"
+                android:textColor="@color/white"/>
+
+                <TextView
+                    android:id="@+id/tvScoreofGame"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Score : 4500"
+                    android:textSize="@dimen/small_text_size"
+                    android:layout_below="@+id/tvFriendName"
+                    android:paddingTop="2dp"
+                    android:layout_marginLeft="15dp"
+                    android:visibility="gone"
+                    android:layout_toRightOf="@+id/img_user_fb_profile"
+                    android:textColor="@color/white"/>
+
+                <Button
+                    android:id="@+id/btnSendRequest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/round_background_challenge_white"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/challenge"
+                    android:paddingLeft="17dp"
+                    android:paddingRight="17dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:textAllCaps="false"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:textSize="10sp"
+                    android:textColor="@color/colorPrimaryDark"/>
+
+
+            </RelativeLayout>
+            <!--<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvFriendName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Friend Name"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"/>
+
+
+                <Button
+                    android:id="@+id/btnSendRequest"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:text="Request"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimaryDark"/>
+            </LinearLayout>-->
+
+        </FrameLayout>
+
+
+    </RelativeLayout>
+</layout>
