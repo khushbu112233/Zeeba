@@ -1,6 +1,7 @@
 package com.zeeba.Activity.Dashboard;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -13,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -133,11 +135,23 @@ public class DashboardFragment_new extends Fragment {
         mBinding.adView.loadAd(adRequest);
         mBinding.txtSelect.setTypeface(FontCustom.setFontBold(context));
         if (Pref.getValue(getActivity(), "facebook_request", "").equals("1")) {
-            mBinding.txtSelect.setText("Select A Category For Challenge");
+            mBinding.txtSelect.setText("Select A Category To Challenge" + "\n" + Pref.getValue(getActivity(), "send_request_user_facebook_name", ""));
+            ((DashBoardMainActivity) getActivity()).mBinding.imgLeftIcon.setVisibility(View.VISIBLE);
+            ((DashBoardMainActivity) getActivity()).mBinding.drawerIcon.setVisibility(View.GONE);
+            ((DashBoardMainActivity) getActivity()).mBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         } else {
+            ((DashBoardMainActivity) getActivity()).mBinding.imgLeftIcon.setVisibility(View.GONE);
+            ((DashBoardMainActivity) getActivity()).mBinding.drawerIcon.setVisibility(View.VISIBLE);
             mBinding.txtSelect.setText("Select A Category");
+            ((DashBoardMainActivity) getActivity()).mBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
         }
 
+        ((DashBoardMainActivity) getActivity()).mBinding.imgLeftIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
 
         Pref.setValue(context, "cate_deleted", "no");
 
@@ -171,7 +185,7 @@ public class DashboardFragment_new extends Fragment {
 
         }*/
 
-
+        Log.v("on_resume_call", "oncreate---------------");
         return rootView;
     }
 
@@ -180,30 +194,31 @@ public class DashboardFragment_new extends Fragment {
     public void onResume() {
         super.onResume();
         is_click = 0;
+
+       // ((DashBoardMainActivity) getActivity()).setdrawer();
+
         Log.v("on_resume_call", "call---------------");
-        ((DashBoardMainActivity)getActivity()).mBinding.imgRefreshData.setVisibility(View.GONE);
-        if(Pref.getValue(context,"facebook_request","").equals("0") && Pref.getValue(context,"reload_data","").equals("0"))
-        {
+        ((DashBoardMainActivity) getActivity()).mBinding.imgRefreshData.setVisibility(View.GONE);
+        if (Pref.getValue(context, "facebook_request", "").equals("0") && Pref.getValue(context, "reload_data", "").equals("0")) {
 
             MyChallengersAcceptedFacebookListFragment fragment_remove = new MyChallengersAcceptedFacebookListFragment();
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main_container, fragment_remove).commit();
         }
 
-        if(Pref.getValue(context,"cate_deleted","").equals("yes"))
-        {
+        if (Pref.getValue(context, "cate_deleted", "").equals("yes")) {
             Log.v("on_resume_call", "222---------------");
             realm.executeTransaction(new Realm.Transaction() {
                 @Override
                 public void execute(Realm realm) {
                     final RealmResults<Category> cate_del = realm.where(Category.class)
-                            .equalTo("id",Pref.getValue(context, "cate_id",""))
+                            .equalTo("id", Pref.getValue(context, "cate_id", ""))
                             .findAll();
                     final RealmResults<Questions> questions_del = realm.where(Questions.class)
-                            .equalTo("id",Pref.getValue(context, "cate_id",""))
+                            .equalTo("id", Pref.getValue(context, "cate_id", ""))
                             .findAll();
 
                     final RealmResults<AnswerImage> ans_img = realm.where(AnswerImage.class)
-                            .equalTo("category_id", Pref.getValue(context, "cate_id",""))
+                            .equalTo("category_id", Pref.getValue(context, "cate_id", ""))
 
                             .findAll();
                     if (ans_img.size() > 0) {
@@ -220,19 +235,19 @@ public class DashboardFragment_new extends Fragment {
             /**
              * Intialize outer count which define how many times 5 views repeted
              */
-            total_outer_count=0;
+            total_outer_count = 0;
             /**
              * Intialize total no of category
              */
-            tot_no_data=0;
+            tot_no_data = 0;
             /**
              * Intialize count which defines category index
              */
-            count=0;
+            count = 0;
             /**
              *  Intialize stop to break from inner & outer loop
              */
-            stop=1;
+            stop = 1;
             mBinding.mainLayout.removeAllViews();
             getdata_deomdb();
         }
@@ -347,7 +362,7 @@ public class DashboardFragment_new extends Fragment {
                             }
                         }
                     }
-                }else if(jsonObject.getString("code").equals("1000")){
+                } else if (jsonObject.getString("code").equals("1000")) {
                     Utils.exitApplication(getActivity());
                 }
                 /**

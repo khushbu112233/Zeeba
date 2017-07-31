@@ -45,6 +45,16 @@
                 android:textColor="#ffffff"
                 android:textSize="24sp" />
 
+            <View
+                android:id="@+id/view_main"
+                android:layout_width="250dp"
+                android:layout_height="1dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/txt_yourscore"
+                android:background="#599e005d"></View>
+
 
             <TextView
                 android:id="@+id/tvtotalPointSystem"
@@ -55,7 +65,8 @@
                 android:textSize="12sp"
                 android:layout_centerHorizontal="true"
                 android:paddingTop="3dp"
-                android:layout_below="@+id/txt_yourscore"
+                android:layout_marginTop="7dp"
+                android:layout_below="@+id/view_main"
                 android:textColor="@color/pink_latest"
                 android:background="@mipmap/star_point_img" />
 

@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.annotation.IntDef;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
@@ -230,7 +231,8 @@ public class DashBoardMainActivity extends FragmentActivity {
                     DashboardFragment_new fragment = new DashboardFragment_new();
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame_main_container, fragment).commit();
                     Pref.setValue(DashBoardMainActivity.this, "drawer_value", "0");
-                    //Pref.setValue(DashBoardMainActivity.this, "facebook_request", "0");
+                    Pref.setValue(DashBoardMainActivity.this, "facebook_request", "0");
+                    Pref.setValue(DashBoardMainActivity.this, "reload_data", "1");
                     Log.e("Dashboard", "111");
                 } else {
                     DashboardFragment_new fragment = new DashboardFragment_new();
@@ -428,6 +430,16 @@ public class DashBoardMainActivity extends FragmentActivity {
 
     }
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        FragmentManager fm = getSupportFragmentManager();
+        for (int i = 0; i < fm.getBackStackEntryCount(); ++i) {
+           Log.e("FragmentCount","%%%% " +fm);
+
+        }
+    }
 
     public Fragment getCurrentFragment() {
         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.frame_main_container);

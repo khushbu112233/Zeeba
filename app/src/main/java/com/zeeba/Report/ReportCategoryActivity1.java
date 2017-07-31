@@ -62,6 +62,7 @@ public class ReportCategoryActivity1 extends BaseActivity {
     private ImageView header_image_view;
     private ImageView img_left;
     private ProgressBar progressBar1;
+    RelativeLayout rl_challnges_fb_btm;
     AdView adView;
     /**
      * Declare arraylist
@@ -99,9 +100,10 @@ public class ReportCategoryActivity1 extends BaseActivity {
         progressBar1=(ProgressBar)findViewById(R.id.progressBar1);
         adView=(AdView)findViewById(R.id.adView);
         fm_1 = (FrameLayout)findViewById(R.id.fm_1);
+        rl_challnges_fb_btm=(RelativeLayout)findViewById(R.id.rl_challnges_fb_btm);
         header_image_view.setClickable(false);
         progressBar1.setVisibility(View.VISIBLE);
-
+        rl_challnges_fb_btm.setVisibility(View.GONE);
         if(Pref.getValue(ReportCategoryActivity1.this,"add_display","").equalsIgnoreCase("0"))
         {
          /*   RelativeLayout.LayoutParams ps= (RelativeLayout.LayoutParams)fm_1.getLayoutParams();

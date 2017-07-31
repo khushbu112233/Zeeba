@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/lnMaintop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/splash_bg"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <!--<FrameLayout
+                android:id="@+id/ffMain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgleft"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:padding="10dp"
+                    android:layout_marginTop="7dp"
+                    android:src="@mipmap/left" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|top"
+                        android:layout_marginLeft="110dp"
+                        android:layout_marginRight="110dp"
+                        android:src="@mipmap/nav_logo"></ImageView>
+
+                        <ImageView
+                            android:id="@+id/img_refresh_data"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/refresh_data_img"
+                            android:padding="10dp"
+                            android:layout_marginTop="7dp"
+                            android:layout_alignParentRight="true"/>
+
+                    </RelativeLayout>-->
+
+                    <TextView
+                        android:id="@+id/tv_challenge_friend"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/challenge_your_facebook_friend"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/large_text_size" />
+
+                    <View
+                        android:layout_width="250dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="#599e005d"></View>
+
+
+                    <LinearLayout
+                        android:id="@+id/rel1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:id="@+id/swipeContainer_for_frnd"
+                            android:layout_width="match_parent"
+                            android:layout_marginBottom="60dp"
+                            android:layout_height="match_parent">
+
+                        <ListView
+                            android:id="@+id/lvFacebookFrnd"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/txt_select"
+                            android:layout_marginTop="15dp"
+                            android:divider="@null"
+                            android:layout_marginBottom="55dp"
+                            android:dividerHeight="1dp"
+                            android:visibility="invisible"></ListView>
+
+                        </android.support.v4.widget.SwipeRefreshLayout>
+                        <RelativeLayout
+                            android:id="@+id/rl_invitaion_fb_btm"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:layout_marginTop="-55dp"
+                            android:background="@color/white"
+                            android:gravity="center_horizontal">
+
+                            <ImageView
+                                android:id="@+id/img_invitaion_icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:src="@mipmap/facebook_invite_frnd" />
+
+                            <TextView
+                                android:id="@+id/btn_invitaion_facebook_frnd_list"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="15dp"
+                                android:layout_toRightOf="@+id/img_invitaion_icon"
+                                android:gravity="center_vertical"
+                                android:text="Invite Friends"
+                                android:textAllCaps="false"
+                                android:textColor="@color/blue_invite"
+                                android:textSize="@dimen/med_text_size"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    <!--</LinearLayout>-->
+                </LinearLayout>
+           <!-- </FrameLayout>-->
+        </LinearLayout>
+    </FrameLayout>
+</layout>

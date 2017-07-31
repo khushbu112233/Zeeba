@@ -654,6 +654,7 @@ public class CategoryActivity1 extends BaseActivity {
         protected void onPostExecute(String result) {
             try {
                 // WebService.dismissProgress();
+                progressBar1.setVisibility(View.GONE);
                 Log.v("categoryActivity1", result + "--");
                 final JSONObject jsonObject;
                 jsonObject = new JSONObject(result);
@@ -683,30 +684,32 @@ public class CategoryActivity1 extends BaseActivity {
                         /**
                          *  Set expiredate by add days in current date
                          */
-                        Calendar cal = Calendar.getInstance();
-                        cal.add(Calendar.DATE, Integer.parseInt(json.getJSONObject(i).getString("days")));
-                        questions_models[i].setExpire_date(cal.getTimeInMillis() + "");
-                        questionsArrayList.add(questions_models[i]);
-                        /**
-                         * store all qid in questionsarraylist
-                         */
-                        question_id_list.add(json.getJSONObject(i).getString("q_id"));
-                        /**
-                         *  store all answers in answerImageArrayList
-                         */
-                        if (json.getJSONObject(i).getJSONArray("answer").length() > 0) {
+                        if(Integer.parseInt(json.getJSONObject(i).getString("days"))>0) {
+                            Calendar cal = Calendar.getInstance();
+                            cal.add(Calendar.DATE, Integer.parseInt(json.getJSONObject(i).getString("days")));
+                            questions_models[i].setExpire_date(cal.getTimeInMillis() + "");
+                            questionsArrayList.add(questions_models[i]);
+                            /**
+                             * store all qid in questionsarraylist
+                             */
+                            question_id_list.add(json.getJSONObject(i).getString("q_id"));
+                            /**
+                             *  store all answers in answerImageArrayList
+                             */
+                            if (json.getJSONObject(i).getJSONArray("answer").length() > 0) {
 
-                            AnswerImage[] answerImages = new AnswerImage[json.getJSONObject(i).getJSONArray("answer").length()];
-                            for (int j = 0; j < json.getJSONObject(i).getJSONArray("answer").length(); j++) {
-                                answerImages[j] = new AnswerImage();
-                                answerImages[j].setCategory_id(Pref.getValue(CategoryActivity1.this, "cate_id", ""));
-                                answerImages[j].setQ_id(json.getJSONObject(i).getString("q_id"));
-                                answerImages[j].setAns_id(json.getJSONObject(i).getJSONArray("answer").getJSONObject(j).getString("ans_id"));
-                                answerImages[j].setName(json.getJSONObject(i).getJSONArray("answer").getJSONObject(j).getString("name"));
-                                answerImages[j].setAns_img(json.getJSONObject(i).getJSONArray("answer").getJSONObject(j).getString("images"));
-                                //answerImages[j].setSound(json.getJSONObject(i).getJSONArray("answer").getJSONObject(j).optString("sound"));
-                                answerImageArrayList.add(answerImages[j]);
+                                AnswerImage[] answerImages = new AnswerImage[json.getJSONObject(i).getJSONArray("answer").length()];
+                                for (int j = 0; j < json.getJSONObject(i).getJSONArray("answer").length(); j++) {
+                                    answerImages[j] = new AnswerImage();
+                                    answerImages[j].setCategory_id(Pref.getValue(CategoryActivity1.this, "cate_id", ""));
+                                    answerImages[j].setQ_id(json.getJSONObject(i).getString("q_id"));
+                                    answerImages[j].setAns_id(json.getJSONObject(i).getJSONArray("answer").getJSONObject(j).getString("ans_id"));
+                                    answerImages[j].setName(json.getJSONObject(i).getJSONArray("answer").getJSONObject(j).getString("name"));
+                                    answerImages[j].setAns_img(json.getJSONObject(i).getJSONArray("answer").getJSONObject(j).getString("images"));
+                                    //answerImages[j].setSound(json.getJSONObject(i).getJSONArray("answer").getJSONObject(j).optString("sound"));
+                                    answerImageArrayList.add(answerImages[j]);
 
+                                }
                             }
                         }
                     }

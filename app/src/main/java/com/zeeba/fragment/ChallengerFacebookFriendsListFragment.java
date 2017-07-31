@@ -1,17 +1,21 @@
-package com.zeeba.Activity.Dashboard;
+package com.zeeba.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
+import android.os.AsyncTask;
 import android.os.Build;
-import android.preference.PreferenceManager;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenSource;
@@ -21,14 +25,18 @@ import com.facebook.HttpMethod;
 import com.facebook.share.model.AppInviteContent;
 import com.facebook.share.widget.AppInviteDialog;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.zeeba.Activity.FacebookLoginActivity;
+import com.zeeba.Activity.Dashboard.ChallengesListFacebookFrndActivity;
+import com.zeeba.Activity.Dashboard.DashBoardMainActivity;
+import com.zeeba.Adapter.ChallengerFBFriendListAdapter;
 import com.zeeba.Adapter.FacebookFriendListAdapter;
+import com.zeeba.Model.ChallengerFBuserListModel;
 import com.zeeba.Model.FacebookuserzeebaListModel;
 import com.zeeba.R;
 import com.zeeba.Webservice.WebService;
 import com.zeeba.databinding.ActivityChallengesListFacebookFrndBinding;
-import com.zeeba.fragment.NotificationofChallengesListFragment;
+import com.zeeba.databinding.FragmentChallengerfriendlistBinding;
+import com.zeeba.databinding.FragmentFacebookChallengesListFrndBinding;
+import com.zeeba.utils.ConnectionDetector;
 import com.zeeba.utils.Constants;
 import com.zeeba.utils.FontCustom;
 import com.zeeba.utils.Pref;
@@ -37,36 +45,41 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Type;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class ChallengesListFacebookFrndActivity extends AppCompatActivity {
 
-    ActivityChallengesListFacebookFrndBinding mBinding;
-    Context mContext;
+public class ChallengerFacebookFriendsListFragment extends Fragment {
+
+    FragmentFacebookChallengesListFrndBinding mBinding;
+    Context context;
     ArrayList<FacebookuserzeebaListModel> facebookuserzeebaListModelArrayList = new ArrayList<FacebookuserzeebaListModel>();
     FacebookFriendListAdapter facebookFriendListAdapter;
     private String TAG = "ChallengesListFacebook";
     ArrayList<String> permission = new ArrayList<>();
     String appLinkUrl, previewImageUrl;
-
+    View rootView;
+    ConnectionDetector cd;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_challenges_list_facebook_frnd);
-        mContext = ChallengesListFacebookFrndActivity.this;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        mBinding = DataBindingUtil.inflate(
+                inflater, R.layout.fragment_facebook_challenges_list_frnd, container, false);
+        rootView = mBinding.getRoot();
+        context = getActivity();
+        cd=new ConnectionDetector(context);
+
         StatusBar();
-        mBinding.tvChallengeFriend.setTypeface(FontCustom.setFontBold(mContext));
-        mBinding.btnInvitaionFacebookFrndList.setTypeface(FontCustom.setFontcontent(mContext));
-        if (!Pref.getValue(ChallengesListFacebookFrndActivity.this, Constants.PREF_USER_FB_ID, "").equals("")) {
+        mBinding.tvChallengeFriend.setTypeface(FontCustom.setFontBold(context));
+        mBinding.btnInvitaionFacebookFrndList.setTypeface(FontCustom.setFontcontent(context));
+        if (!Pref.getValue(getActivity(), Constants.PREF_USER_FB_ID, "").equals("")) {
             mBinding.lvFacebookFrnd.setVisibility(View.VISIBLE);
             permission.add("id,first_name,last_name,email,name");
             getFriendsList();
-            WebService.showProgress(ChallengesListFacebookFrndActivity.this);
-            /*SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+            WebService.showProgress(getActivity());
+            /*SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
             Gson gson = new Gson();
             if (!TextUtils.isEmpty(sharedPrefs.getString("facebookFriendList", null))) {
                 String json = sharedPrefs.getString("facebookFriendList", null);
@@ -80,21 +93,7 @@ public class ChallengesListFacebookFrndActivity extends AppCompatActivity {
         }
         pulltoRefreshFuntion();
 
-        mBinding.imgRefreshData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                permission.add("id,first_name,last_name,email,name");
-                getFriendsList();
-                WebService.showProgress(ChallengesListFacebookFrndActivity.this);
-            }
-        });
 
-        mBinding.imgleft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
 
         mBinding.rlInvitaionFbBtm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,19 +108,38 @@ public class ChallengesListFacebookFrndActivity extends AppCompatActivity {
                             .setApplinkUrl(appLinkUrl)
                             .setPreviewImageUrl(previewImageUrl)
                             .build();
-                    AppInviteDialog.show(ChallengesListFacebookFrndActivity.this, content);
+                    AppInviteDialog.show(getActivity(), content);
                 }
             }
         });
 
 
+
+        return rootView;
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void onResume() {
+        super.onResume();
+        ((DashBoardMainActivity) getActivity()).mBinding.drawerIcon.setVisibility(View.GONE);
+        ((DashBoardMainActivity) getActivity()).mBinding.imgLeftIcon.setVisibility(View.VISIBLE);
+        ((DashBoardMainActivity) getActivity()).mBinding.imgRefreshData.setVisibility(View.VISIBLE);
+        ((DashBoardMainActivity) getActivity()).mBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        ((DashBoardMainActivity) getActivity()).mBinding.imgLeftIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
 
-
+        ((DashBoardMainActivity) getActivity()).mBinding.imgRefreshData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                permission.add("id,first_name,last_name,email,name");
+                getFriendsList();
+                WebService.showProgress(getActivity());
+            }
+        });
     }
 
     private void pulltoRefreshFuntion() {
@@ -130,7 +148,7 @@ public class ChallengesListFacebookFrndActivity extends AppCompatActivity {
             public void onRefresh() {
                 permission.add("id,first_name,last_name,email,name");
                 getFriendsList();
-                WebService.showProgress(ChallengesListFacebookFrndActivity.this);
+                WebService.showProgress(getActivity());
             }
         });
         // Configure the refreshing colors
@@ -143,8 +161,8 @@ public class ChallengesListFacebookFrndActivity extends AppCompatActivity {
     public void StatusBar() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            getWindow().setStatusBarColor(getResources().getColor(R.color.colorAccent));
+            getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorAccent));
         }
 
     }
@@ -152,9 +170,9 @@ public class ChallengesListFacebookFrndActivity extends AppCompatActivity {
     private List<String> getFriendsList() {
         final List<String> friendslist = new ArrayList<String>();
 
-        Date formate = new Date(Pref.getValue(ChallengesListFacebookFrndActivity.this, "FB_EXPIRE", ""));
+        Date formate = new Date(Pref.getValue(getActivity(), "FB_EXPIRE", ""));
 
-        AccessToken PageAT = new AccessToken(Pref.getValue(ChallengesListFacebookFrndActivity.this, Constants.PREF_USER_FB_TOKEN, ""), Pref.getValue(ChallengesListFacebookFrndActivity.this, "FB_APPLICATION_ID", ""), Pref.getValue(ChallengesListFacebookFrndActivity.this, "FB_USER_ID", ""), permission, null, AccessTokenSource.FACEBOOK_APPLICATION_NATIVE, formate, null);
+        AccessToken PageAT = new AccessToken(Pref.getValue(getActivity(), Constants.PREF_USER_FB_TOKEN, ""), Pref.getValue(getActivity(), "FB_APPLICATION_ID", ""), Pref.getValue(getActivity(), "FB_USER_ID", ""), permission, null, AccessTokenSource.FACEBOOK_APPLICATION_NATIVE, formate, null);
         new GraphRequest(PageAT, "/me/friends", null, HttpMethod.GET, new GraphRequest.Callback() {
             public void onCompleted(GraphResponse response) {
 /* handle the result */
@@ -175,10 +193,10 @@ public class ChallengesListFacebookFrndActivity extends AppCompatActivity {
                         FacebookuserzeebaListModel facebookuserzeebaListModel = gson.fromJson(dataObject.toString(), FacebookuserzeebaListModel.class);
                         facebookuserzeebaListModelArrayList.add(facebookuserzeebaListModel);
 
-                        facebookFriendListAdapter = new FacebookFriendListAdapter(ChallengesListFacebookFrndActivity.this, facebookuserzeebaListModelArrayList);
+                        facebookFriendListAdapter = new FacebookFriendListAdapter(getActivity(), facebookuserzeebaListModelArrayList);
                         mBinding.lvFacebookFrnd.setAdapter(facebookFriendListAdapter);
 
-                        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(ChallengesListFacebookFrndActivity.this);
+                        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
                         SharedPreferences.Editor editor = sharedPrefs.edit();
 
                         String json = gson.toJson(facebookuserzeebaListModelArrayList);
@@ -206,4 +224,5 @@ public class ChallengesListFacebookFrndActivity extends AppCompatActivity {
         }).executeAsync();
         return friendslist;
     }
+
 }

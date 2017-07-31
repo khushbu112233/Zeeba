@@ -331,6 +331,7 @@ public class RemoveAdsFragment extends Fragment implements BillingProcessor.IBil
                         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main_container, fragment).commit();
                         Pref.setValue(getActivity(), "facebook_request", "0");
                         Pref.setValue(getActivity(), "reload_data", "1");
+                        Pref.setValue(getActivity(), "drawer_value", "8");
                         return true;
                     }
                 }

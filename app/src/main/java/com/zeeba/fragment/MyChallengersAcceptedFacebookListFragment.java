@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
 import android.util.Log;
@@ -75,6 +76,7 @@ public class MyChallengersAcceptedFacebookListFragment extends Fragment {
     MyChallengesFbFrndListAdapter myChallengesFbFrndListAdapter;
     AcceptedChallegesFbFrndListAdapter acceptedChallegesFbFrndListAdapter;
     View rootView;
+    boolean isF = false;
 
     //variable declaration
     String loginAccessToken;
@@ -95,17 +97,22 @@ public class MyChallengersAcceptedFacebookListFragment extends Fragment {
                 inflater, R.layout.fragment_mychallengersacceptfblist, container, false);
         rootView = mBinding.getRoot();
 
-        ((DashBoardMainActivity)getActivity()).mBinding.imgRefreshData.setVisibility(View.VISIBLE);
-
-
 
         return rootView;
     }
 
+
     @Override
     public void onResume() {
         super.onResume();
-
+        ((DashBoardMainActivity) getActivity()).mBinding.drawerIcon.setVisibility(View.VISIBLE);
+        ((DashBoardMainActivity) getActivity()).mBinding.imgLeftIcon.setVisibility(View.GONE);
+        ((DashBoardMainActivity) getActivity()).mBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+        if (Pref.getValue(getActivity(), "facebook_challenge", "").equals("1")) {
+            Pref.setValue(getActivity(),"facebook_challenge","0");
+            DashboardFragment_new fragment = new DashboardFragment_new();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main_container, fragment).addToBackStack(null).commit();
+        }
         cd = new ConnectionDetector(getActivity());
         // FacebookSdk.sdkInitialize(this.getActivity());
         mContext = getActivity();
@@ -120,7 +127,7 @@ public class MyChallengersAcceptedFacebookListFragment extends Fragment {
         mBinding.tvChallengesBlankView.setTypeface(FontCustom.setFontcontent(getActivity()));
 
         if (!Pref.getValue(getActivity(), Constants.PREF_USER_FB_ID, "").equals("")) {
-
+            ((DashBoardMainActivity) getActivity()).mBinding.imgRefreshData.setVisibility(View.VISIBLE);
             mBinding.lnMyChallengesList.setVisibility(View.VISIBLE);
             pulltoRefreshFuntion(0);
         } else {
@@ -130,6 +137,12 @@ public class MyChallengersAcceptedFacebookListFragment extends Fragment {
         Log.e("DashMain", "Challenge");
         Pref.setValue(getActivity(), Constants.PREF_USER_FB_ID, Pref.getValue(getActivity(), Constants.PREF_USER_FB_ID, ""));
 
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        for (int i = 0; i < fm.getBackStackEntryCount(); ++i) {
+            //   fm.popBackStack();
+
+        }
+        Log.e("Challenges", "%%%% " + fm.getBackStackEntryCount());
     }
 
 
@@ -154,7 +167,7 @@ public class MyChallengersAcceptedFacebookListFragment extends Fragment {
 
     private void pulltoRefreshFuntion(final int clickchallenge) {
 
-        ((DashBoardMainActivity)getActivity()).mBinding.imgRefreshData.setOnClickListener(new View.OnClickListener() {
+        ((DashBoardMainActivity) getActivity()).mBinding.imgRefreshData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (clickchallenge == 0) {
@@ -240,7 +253,9 @@ public class MyChallengersAcceptedFacebookListFragment extends Fragment {
         mBinding.rlChallngesFbBtm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), ChallengesListFacebookFrndActivity.class));
+              //  startActivity(new Intent(getActivity(), ChallengesListFacebookFrndActivity.class));
+                ChallengerFacebookFriendsListFragment fragment = new ChallengerFacebookFriendsListFragment();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main_container, fragment).addToBackStack(null).commit();
                 //getActivity().finish();
             }
         });
@@ -459,12 +474,9 @@ public class MyChallengersAcceptedFacebookListFragment extends Fragment {
                     mBinding.lnMyChallengesList.setVisibility(View.VISIBLE);
 
 
-                }
-                else if (json.optString("code").equals("1000")) {
+                } else if (json.optString("code").equals("1000")) {
                     Utils.exitApplication(getActivity());
-                }
-
-                else {
+                } else {
                     mBinding.activityFacebookLogin.setVisibility(View.VISIBLE);
                     mBinding.lnMyChallengesList.setVisibility(View.GONE);
                     Toast.makeText(mContext, "" + json.optString("msg"), Toast.LENGTH_SHORT).show();
@@ -628,6 +640,7 @@ public class MyChallengersAcceptedFacebookListFragment extends Fragment {
                         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main_container, fragment).commit();
                         Pref.setValue(getActivity(), "facebook_request", "0");
                         Pref.setValue(getActivity(), "reload_data", "1");
+                        Pref.setValue(getActivity(), "drawer_value", "8");
                         return true;
                     }
                 }

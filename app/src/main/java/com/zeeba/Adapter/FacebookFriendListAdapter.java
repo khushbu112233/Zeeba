@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,10 +21,12 @@ import com.bumptech.glide.request.Request;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.zeeba.Activity.Dashboard.DashBoardMainActivity;
+import com.zeeba.Activity.Dashboard.DashboardFragment_new;
 import com.zeeba.Activity.Dashboard.SelectAnswerActivity_new;
 import com.zeeba.Model.FacebookuserzeebaListModel;
 import com.zeeba.R;
 import com.zeeba.databinding.RowFacebookFrndListBinding;
+import com.zeeba.fragment.ChallengerFacebookFriendsListFragment;
 import com.zeeba.utils.Pref;
 import com.zeeba.utils.Utils;
 
@@ -85,7 +88,11 @@ public class FacebookFriendListAdapter extends BaseAdapter {
             public void onClick(View view) {
                 Pref.setValue(context,"facebook_request","1");
                 Pref.setValue(context,"send_request_user_facebook_id",facebookuserzeebaListModel.id);
-                context.startActivity(new Intent(context, DashBoardMainActivity.class));
+                Pref.setValue(context,"send_request_user_facebook_name",facebookuserzeebaListModel.name);
+                DashboardFragment_new fragment = new DashboardFragment_new();
+                ((FragmentActivity)context).getSupportFragmentManager().beginTransaction().replace(R.id.frame_main_container, fragment).addToBackStack(null).commit();
+               // ((Activity)context).finish();
+               // context.startActivity(new Intent(context, DashBoardMainActivity.class));
               //  Intent intent = new Intent(context, DashBoardMainActivity.class);
                // ((Activity)context).startActivityForResult(intent, 100);
                 //Toast.makeText(context, "Testing", Toast.LENGTH_SHORT).show();
