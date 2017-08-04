@@ -52,6 +52,7 @@ public class SelectSocialSubCategoryActivity extends BaseActivity {
     private View headerSpace;
     private ImageView header_image_view;
     private ImageView img_left;
+    RelativeLayout rl_challnges_fb_btm;
     /**
      * Declare arraylist
      */
@@ -89,7 +90,9 @@ public class SelectSocialSubCategoryActivity extends BaseActivity {
         img_left = (ImageView) findViewById(R.id.imgleft);
         adView=(AdView)findViewById(R.id.adView);
         fm_1 = (FrameLayout)findViewById(R.id.fm_1);
+        rl_challnges_fb_btm=(RelativeLayout)findViewById(R.id.rl_challnges_fb_btm);
         header_image_view.setClickable(false);
+        rl_challnges_fb_btm.setVisibility(View.GONE);
         if(Pref.getValue(SelectSocialSubCategoryActivity.this,"add_display","").equalsIgnoreCase("0"))
         {
            /* RelativeLayout.LayoutParams ps= (RelativeLayout.LayoutParams)fm_1.getLayoutParams();

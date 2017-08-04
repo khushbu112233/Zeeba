@@ -24,7 +24,7 @@ public class InformationDetailActivity extends BaseActivity {
     int[] mResources = {
             R.mipmap.dashbord_screen,
             R.mipmap.sub_category_screen,
-            R.mipmap.question_screen_1,
+            R.mipmap.info_15_sec_img,
             R.mipmap.question_screen_2,
             R.mipmap.thank_screen,
 
@@ -35,7 +35,7 @@ public class InformationDetailActivity extends BaseActivity {
     int[] mResources_social = {
             R.mipmap.dashboard_social,
             R.mipmap.subcategory_for_social,
-            R.mipmap.subcategory_for_social_copy,
+            R.mipmap.info_social_15_sec_img,
             R.mipmap.que_for_social_2,
             R.mipmap.thank_you_for_social,
 

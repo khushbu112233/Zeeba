@@ -170,7 +170,7 @@ public class SelectAnswerSocialActivity extends BaseActivity {
             /**
              *  Set timer for 2 seconds
              */
-            myCountDownTimer = new MyCountDownTimer(4000, 1000);
+            myCountDownTimer = new MyCountDownTimer(16000, 1000);
 
             Log.e("connection",cd.isConnectingToInternet()+"--");
             if(MainActivity.socialQuestionsArrayList.size()==0)
@@ -393,7 +393,7 @@ public class SelectAnswerSocialActivity extends BaseActivity {
                 /**
                  *  Set timer for 2 seconds
                  */
-                myCountDownTimer = new MyCountDownTimer(4000, 1000);
+                myCountDownTimer = new MyCountDownTimer(16000, 1000);
 
                 Log.e("connection",cd.isConnectingToInternet()+"--");
                 if(MainActivity.socialQuestionsArrayList.size()==0)
@@ -586,7 +586,7 @@ public class SelectAnswerSocialActivity extends BaseActivity {
               //  stopPlaying();
                 soundMediaPlayer= MediaPlayer.create(SelectAnswerSocialActivity.this, R.raw.eight_opt_game_sound);
                 soundMediaPlayer.start();
-                Toast.makeText(SelectAnswerSocialActivity.this, "Move faster, you must select an image within 3 seconds!", Toast.LENGTH_LONG).show();
+                Toast.makeText(SelectAnswerSocialActivity.this, "Move faster, you must select an image within 15 seconds!", Toast.LENGTH_LONG).show();
             }
 
             finish();

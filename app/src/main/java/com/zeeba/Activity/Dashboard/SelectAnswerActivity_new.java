@@ -172,7 +172,7 @@ public class SelectAnswerActivity_new extends BaseActivity {
                 /**
                  * Countdowntimer for 3 seconds
                  */
-                myCountDownTimer = new MyCountDownTimer(4000, 1000);
+                myCountDownTimer = new MyCountDownTimer(16000, 1000);
 
                 /**
                  *  Get all answer images from local database
@@ -1143,7 +1143,7 @@ public class SelectAnswerActivity_new extends BaseActivity {
                // stopPlaying();
                 soundMediaPlayer = MediaPlayer.create(SelectAnswerActivity_new.this, R.raw.eight_opt_game_sound);
                 soundMediaPlayer.start();
-                Toast.makeText(SelectAnswerActivity_new.this, "Move faster, you must select an image within 3 seconds!", Toast.LENGTH_LONG).show();
+                Toast.makeText(SelectAnswerActivity_new.this, "Move faster, you must select an image within 15 seconds!", Toast.LENGTH_LONG).show();
                 finish();
             }
         }
