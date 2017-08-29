@@ -72,10 +72,10 @@ public class RemoveAdsFragment extends Fragment implements BillingProcessor.IBil
 
                 is_remove_click=1;
                 if(bp.isPurchased(KEY_REMOVE_ADDS)) {
-                    opendialog((getResources().getString(R.string.app_name)), "All Ads already removed!", true, false);
+                    opendialog((getResources().getString(R.string.app_name)), "All Ads already removed!", true, true);
                 }else
                 {
-                    opendialog((getResources().getString(R.string.app_name)), "All Ads removed!", true, false);
+                    opendialog((getResources().getString(R.string.app_name)), "Do you want to remove all Ads?", true, true);
                 }
                 // openDialog1(KEY_REMOVE_ADDS);
             }
@@ -216,7 +216,7 @@ public class RemoveAdsFragment extends Fragment implements BillingProcessor.IBil
             });
         }
         if (isVisibleNagative) {
-            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     //  Action for 'NO' Button
                     dialog.cancel();
